@@ -1,0 +1,40 @@
+body {
+    text-align: center;
+}
+
+.btn {
+    height: 150px;
+    width: 150px;
+    border-radius: 18%;
+    border: 5px solid black;
+    margin: 2rem 1rem;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.emerald {
+    background-color: #23CE6B;
+}
+
+.gunmetal {
+    background-color: #59594A;
+}
+
+.purple {
+    background-color: #A846A0;
+}
+
+.gray {
+    background-color: #9BA7C0;
+}
+
+.flash {
+    background-color: white;
+}
+
+.userFlash {
+    background-color:#FFE66D;
+}
