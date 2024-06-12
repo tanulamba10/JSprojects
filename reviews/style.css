@@ -57,6 +57,10 @@ img {
     box-shadow: 5px 5px 5px #96939B;
 }
 
+h3, h6 {
+    text-transform: capitalize;
+}
+
 h1 {
     margin: 100px 0 0 0;
     padding: 10px; 
@@ -69,7 +73,7 @@ h1 {
     }
     
 .i {
-    margin-top: 10px;
+    margin-top: 15px;
     width: 20px;
     border: none;
 }
@@ -78,6 +82,14 @@ h1 {
     width: 100px;
     height: 20px;
     color: white;
-    margin-bottom: 5px;
+    margin-top: 10px;
     background-color: #36413E;
+}
+
+.i:hover {
+    transform: scale(1.25);
+}
+
+.btn:hover {
+    transform: scale(1.2);
 }
