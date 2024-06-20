@@ -15,7 +15,10 @@
         <input type="range" name="spacing" id="spacing" min="10" max="200" value="10" data-sizing="px">
 
         <label for="blur">Blur:</label>
-        <input type="range" name="blur" id="blur" min="0" max="25" value="10" data-sizing="px">
+        <input type="range" name="blur" id="blur" min="0" max="15" value="10" data-sizing="px">
+
+        <label for="font-size">Font Size:</label>
+        <input type="range" name="font-size" id="font-size" min="10" max="120" value="50" data-sizing="px">
 
         <label for="base">Base Color</label>
         <input type="color" id="base" name="base" value="#ffc600">
@@ -29,6 +32,7 @@
             --base: #ffc600;
             --spacing: 10px;
             --blur: 10px;
+            --font-size: 50px;
         }
 
         img {
@@ -40,6 +44,7 @@
 
         .h1 {
             color: var(--base);
+            font-size: var(--font-size);
         }
 
         body {
@@ -66,7 +71,6 @@
         function handleUpdate() {
             const suffix = this.dataset.sizing || "";
             document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
-
         }
 
         inputs.forEach(input => input.addEventListener("input", handleUpdate));
