@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Dev Tools</title>
+</head>
+
+<body>
+    <p onclick="makeGreen()">×BREAK×DOWN×</p>
+
+    <script>
+        const makeGreen = () => {
+            const p = document.querySelector("p");
+            p.style.color = "#47A025";
+            p.style.fontSize = "50px";
+        };
+
+        const dogs = [
+            {
+                name: "Snickers",
+                age: 2
+            },
+            {
+                name: "Hugo",
+                age: 8
+            }
+        ];
+
+
+        //REGULAR
+        console.log("hello");
+
+        //INTERPOLATED
+        console.log("hello i am a %s string", "shit");
+
+        //STYLED
+        console.log("%c i have some great text, actually great!", "font-size:50px; background:red; text-shadow:3px 3px 0 black");
+
+        //WARNING
+        console.warn("hey there! stay clear!");
+
+        //ERROR
+        console.error("oopsiee");
+
+        //INFO
+        console.info("we are doing great! today was fun and stressfree!");
+
+        //TESTING(assert: w/o using if condition)
+        const p = document.querySelector("p");
+        console.assert(p.classList.contains("mygirl"), "this is a wrong line of code my dear!");
+
+        //CLEARING
+        console.clear();
+
+        //TABLE
+        console.table(dogs);
+
+        //VIEWING DOM ELEMENTS
+        console.dir(p);
+        console.log(dogs);
+
+        //GROUPING TOGETHER
+        dogs.forEach((dog) => {
+            console.groupCollapsed(`${dog.name}`);
+            console.log(`this is ${dog.name}`);
+            console.log(`${dog.name} is ${dog.age} year's old`);
+            console.log(`${dog.name} likes to play sometimes`);
+            console.groupEnd(`${dog.name}`);
+        });
+
+        //COUNTING
+        console.count("namu");
+        console.count("tanu");
+        console.count("kunal");
+        console.count("tanu");
+        console.count("namu");
+        console.count("kunal");
+        console.count("namu");
+        console.count("namu");
+        console.count("kunal");
+        console.count("tanu");
+        console.count("kunal");
+
+        //TIMING
+        console.time("fetching data");
+        fetch('https://api.github.com/users/wesbos')
+            .then(data => data.json())
+            .then(data => {
+                console.timeEnd("fetching data");
+                console.log(data);
+            });
+
+    </script>
+</body>
+
+</html>
