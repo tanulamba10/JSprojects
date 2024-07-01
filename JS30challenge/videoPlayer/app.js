@@ -50,12 +50,12 @@ function scrub(e) {
 }
 
 function enableFullscreen() {
-    // console.log(document.fullscreenElement);
     if (document.fullscreenElement) {
         document.exitFullscreen();
     } else {
         player.requestFullscreen();
     }
+    // console.log(document.fullscreenElement);
 }
 
 /* Add the event listeners */
