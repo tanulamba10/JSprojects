@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Player</title>
+    <link rel="icon" href="https://fav.farm/🔥" />
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <div class="player">
-        <video class="player-video " src="652333414.mp4"></video>
+        <video class="player-video viewer" src="652333414.mp4"></video>
 
         <div class="player-controls">
             <div class="progress">
@@ -19,7 +20,7 @@
             </div>
             <button class="player-button toggle" title="Toggle Play">►</button>
             <input type="range" name="volume" class="player-slider" min="0" max="1" step="0.05" value="1">
-            <input type="range" class="player-slider" name="playbackRate" min="0" max="1" step="0.01" value="1">
+            <input type="range" class="player-slider" name="playbackRate" min="0.6" max="1.75" step="0.01" value="1">
             <button data-skip="-10" class="player-button">« 10s</button>
             <button data-skip="25" class="player-button">25s »</button>
         </div>
