@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Highlighter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav>
+        <ul class="menu">
+            <li><a href="">Home</a></li>
+            <li><a href="">Order Status</a></li>
+            <li><a href="">Tweets</a></li>
+            <li><a href="">Read Our History</a></li>
+            <li><a href="">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="wrapper">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. <a href="">Architecto minima</a> non aliquid eum
+            vitae laborum
+            sit recusandae excepturi <a href="">molestias veniam</a> veritatis doloremque dolorem voluptatum nesciunt
+            commodi
+            consequatur enim optio adipisci.</p>
+        <p>Molestias nobis explicabo <a href="">blanditiis</a> fugit maiores provident eveniet eius saepe commodi,
+            facere <a href="">cumque</a>
+            obcaecati voluptatem officiis sapiente enim molestiae <a href="">voluptatum!</a> Totam <a href="">ratione
+            </a>minus unde,
+            doloremque sunt
+            sed harum <a href="">dicta</a> odio.</p>
+        <p>Molestias ut <a href="">placeat odit </a> quam Facere Quia, tempora!</p>
+        <p> Harum distinctio explicabo eligendi aut debitis. <a href="">Ratione </a>voluptatibus
+            reprehenderit <a href="">molestiae</a>
+            cupiditate error? Facere.</p>
+        <p>Ipsa odit eligendi, <a href="">distinctio</a> repellat deserunt enim, <a href="">ullam </a> excepturexplicabo
+            dolor ratione. Provident minus <a href="">laudantium </a>laudantium veritatis placeat suscipit rem culpa,
+            similique quis.</p>
+    </div>
+
+    <script>
+
+        const triggers = document.querySelectorAll("a");
+        const highlight = document.createElement("span");
+        highlight.classList.add("highlight");
+        document.body.append(highlight);
+
+        function highlightLink() {
+            const linkCoords = this.getBoundingClientRect();
+            console.log(linkCoords);
+            const coords = {
+                width: linkCoords.width,
+                height: linkCoords.height,
+                top: linkCoords.top + window.scrollY,
+                left: linkCoords.left + window.scrollX
+            };
+
+            highlight.style.width = `${coords.width}px`;
+            highlight.style.height = `${coords.height}px`;
+            highlight.style.transform = `translate(${coords.left}px, ${coords.top}px`;
+        }
+
+        triggers.forEach(a => {
+            a.addEventListener("mouseenter", highlightLink);
+        })
+
+    </script>
+</body>
+
+</html>
