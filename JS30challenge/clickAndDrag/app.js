@@ -8,7 +8,6 @@ slider.addEventListener("mousedown", (e) => {
     slider.classList.add("active");
     startX = e.pageX - slider.offsetLeft;
     scrollLeft = slider.scrollLeft;
-    console.log(scrollLeft);
 });
 
 slider.addEventListener("mouseup", () => {
@@ -26,7 +25,6 @@ slider.addEventListener("mousemove", (e) => {
     e.preventDefault();
     const x = e.pageX - slider.offsetLeft;
     const walk = (x - startX) * 2;
-    console.log(walk);
     slider.scrollLeft = scrollLeft - walk;
 });
 
