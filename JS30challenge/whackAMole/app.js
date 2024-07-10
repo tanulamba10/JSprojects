@@ -8,7 +8,7 @@ let score = 0;
 let lastHole;
 
 function randomTime(min, max) {
-    console.log("working just fine");
+    // console.log("working just fine");
     return Math.round(Math.random() * (max - min)) + min;
 
 }
@@ -34,8 +34,7 @@ function peep() {
         hole.classList.remove('up');
         if (!timeUp) peep();
     }, time);
-    console.log("working just fine");
-
+    // console.log("working just fine");
 }
 
 function startGame() {
@@ -48,8 +47,10 @@ function startGame() {
         h1.appendChild(p);
         p.textContent = `TIME'S UP!`;
     }, 10000);
-    h1.removeChild(p);
-    console.log("working just fine");
+    if (h1.querySelector("p")) {
+        h1.removeChild(p);
+    }
+    // console.log("working just fine");
 }
 
 function hit(e) {
@@ -57,7 +58,7 @@ function hit(e) {
     score++;
     this.parentNode.classList.remove("up");
     scoreBoard.textContent = score;
-    console.log("working just fine");
+    // console.log("working just fine");
 }
 
 moles.forEach(mole => mole.addEventListener("click", hit));
