@@ -51,6 +51,17 @@ body {
     font-size: 1.5rem;
 }
 
+.timer-controls input::placeholder {
+    color: grey;
+    transition: all 0.3s ease;
+}
+
+.timer-controls input:focus::placeholder {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+
 .timer-button {
     background: none;
     border: 0;
