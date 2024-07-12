@@ -1,5 +1,5 @@
 const draggable_list = document.querySelector(".draggable-list");
-// const save = document.querySelector(".save-btn");
+const save = document.querySelector(".save-btn");
 let dragStartIndex;
 
 console.log(draggable_list);
@@ -16,9 +16,13 @@ let myWishList = [
 //List Items
 const listItems = [];
 
+//For making a new array to retrive previous data
+let newList = [];
+
 //Insert List Items into DOM
 function createList(myWishList = []) {
-    [...myWishList]
+    myWishList = loadListFromStorage() || myWishList;
+    myWishList
         .forEach((person, index) => {
             const listItem = document.createElement("li");
 
@@ -74,26 +78,33 @@ function swapItems(startIdx, endIdx) {
 
 }
 
-// function saveOrder() {
-//     localStorage.setItem("wishlist", JSON.stringify(listItems));
+function extractList() {
+    newList = listItems.map(item => {
+        let li = item.children[1].children[0];
+        return li.innerText;
+    });
+    console.log(newList);
+    myWishList = newList;
+    console.log(myWishList);
+}
 
-// }
+function saveOrder() {
+    extractList();
+    localStorage.setItem("wishlist", JSON.stringify(myWishList));
 
-// function loadListFromStorage() {
-//     const storedWishlist = localStorage.getItem("wishlist");
-//     if (storedWishlist) {
-//         myWishList = JSON.parse(storedWishlist);
-//     } else {
-//         myWishList = myWishList;
-//     }
-// }
+}
 
-// function deleteItem(e) {
-//     if (!e.target.matches("i#delete")) return;
-//     let el = e.target.parentNode.parentElement;
-//     let idx = el.dataset.index;
-//     draggable_list.removeChild(listItems[idx]);
-// }
+function loadListFromStorage() {
+    let storedWishlist = localStorage.getItem("wishlist");
+    if (storedWishlist) {
+        myWishList = JSON.parse(storedWishlist);
+    } else {
+        myWishList = myWishList;
+    }
+    console.log(myWishList);
+    return myWishList;
+}
+
 
 //Add Event Listeners
 function addEventListeners() {
@@ -109,12 +120,10 @@ function addEventListeners() {
         item.addEventListener("drop", dragDrop);
         item.addEventListener("dragover", dragOver);
         item.addEventListener("dragleave", dragLeave);
-        // item.addEventListener("click", deleteItem);
     });
 }
 
-// save.addEventListener("click", saveOrder);
-// <i class="fa-solid fa-trash" id="delete"></i>
-// window.addEventListener("DOMContentLoaded", loadListFromStorage);
+save.addEventListener("click", saveOrder);
+
 
 createList(myWishList);

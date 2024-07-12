@@ -80,17 +80,13 @@ body {
     flex: 1;
 }
 
-.draggable-list .draggable p {
+/* .draggable-list .draggable p {
     flex: 2;
-}
-
-.draggable-list li #delete {
-    margin: auto 15px auto 0;
 }
 
 .draggable-list li .grip {
     margin: auto 10px auto 0;
-}
+} */
 
 .save-btn {
     background-color: var(--background-color);
